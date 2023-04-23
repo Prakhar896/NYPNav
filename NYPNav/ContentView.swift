@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var appState: AppState = AppState()
+    
+//    @State var selectedModule: Module = DefaultModules.
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            Form {
+                Section {
+                    HStack {
+                        Text("Module:")
+//                        Picker("Select a module", selection: <#T##Binding<_>#>, content: <#T##() -> _#>)
+                    }
+                }
+            }
+            .navigationTitle("NYPNav")
         }
-        .padding()
     }
 }
 
