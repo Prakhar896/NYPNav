@@ -22,6 +22,7 @@
 		E2AD86EF29F93AC70091B6CE /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86EE29F93AC70091B6CE /* RootView.swift */; };
 		E2AD86F129F940960091B6CE /* PortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86F029F940960091B6CE /* PortalView.swift */; };
 		E2AD86F329F940B10091B6CE /* SFSafariViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86F229F940B10091B6CE /* SFSafariViewWrapper.swift */; };
+		E2AD86F529F966DD0091B6CE /* CampusMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86F429F966DD0091B6CE /* CampusMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		E2AD86EE29F93AC70091B6CE /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E2AD86F029F940960091B6CE /* PortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalView.swift; sourceTree = "<group>"; };
 		E2AD86F229F940B10091B6CE /* SFSafariViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariViewWrapper.swift; sourceTree = "<group>"; };
+		E2AD86F429F966DD0091B6CE /* CampusMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusMapView.swift; sourceTree = "<group>"; };
+		E2AD86FB29F982EB0091B6CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +113,11 @@
 		E25BCA7829F57D730076090C /* NYPNav */ = {
 			isa = PBXGroup;
 			children = (
+				E2AD86FB29F982EB0091B6CE /* Info.plist */,
 				E25BCA7929F57D730076090C /* NYPNavApp.swift */,
 				E2AD86EE29F93AC70091B6CE /* RootView.swift */,
 				E25BCA7B29F57D730076090C /* ContentView.swift */,
+				E2AD86F429F966DD0091B6CE /* CampusMapView.swift */,
 				E2AD86E629F8D4810091B6CE /* ManageModuleView.swift */,
 				E2AD86F029F940960091B6CE /* PortalView.swift */,
 				E2AD86F229F940B10091B6CE /* SFSafariViewWrapper.swift */,
@@ -284,6 +289,7 @@
 				E2AD86F129F940960091B6CE /* PortalView.swift in Sources */,
 				E2AD86EF29F93AC70091B6CE /* RootView.swift in Sources */,
 				E25BCA7C29F57D730076090C /* ContentView.swift in Sources */,
+				E2AD86F529F966DD0091B6CE /* CampusMapView.swift in Sources */,
 				E2AD86F329F940B10091B6CE /* SFSafariViewWrapper.swift in Sources */,
 				E2AD86E929F8D92C0091B6CE /* Extensions.swift in Sources */,
 				E2AD86E729F8D4810091B6CE /* ManageModuleView.swift in Sources */,
@@ -450,8 +456,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NYPNav/Preview Content\"";
 				DEVELOPMENT_TEAM = 49JL8262M2;
+				DONT_GENERATE_INFOPLIST_FILE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NYPNav/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to provide you real-time feedback about where you are in the NYP campus. This feature allows you to easily navigate the NYP campus and reach your destination as fast as possible.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We use your location to provide you real-time feedback about where you are in the NYP campus. This feature allows you to easily navigate the NYP campus and reach your destination as fast as possible.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to provide you real-time feedback about where you are in the NYP campus. This feature allows you to easily navigate the NYP campus and reach your destination as fast as possible.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -479,8 +490,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NYPNav/Preview Content\"";
 				DEVELOPMENT_TEAM = 49JL8262M2;
+				DONT_GENERATE_INFOPLIST_FILE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NYPNav/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to provide you real-time feedback about where you are in the NYP campus. This feature allows you to easily navigate the NYP campus and reach your destination as fast as possible.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We use your location to provide you real-time feedback about where you are in the NYP campus. This feature allows you to easily navigate the NYP campus and reach your destination as fast as possible.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to provide you real-time feedback about where you are in the NYP campus. This feature allows you to easily navigate the NYP campus and reach your destination as fast as possible.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

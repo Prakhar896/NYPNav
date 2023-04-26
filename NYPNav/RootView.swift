@@ -19,6 +19,11 @@ struct RootView: View {
                 .tabItem {
                     Label("E-Services", systemImage: "display")
                 }
+            
+            CampusMapView()
+                .tabItem {
+                    Label("Campus Map", systemImage: "map")
+                }
         }
     }
 }

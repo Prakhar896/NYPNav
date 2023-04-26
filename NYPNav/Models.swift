@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreLocation
+import MapKit
 
 struct Module: Codable, Identifiable {
     var id = UUID()
@@ -124,4 +126,58 @@ struct EServiceLink: Identifiable, Codable {
             EServiceLink(name: "NYP LMS", url: "http://nyplms.polite.edu.sg")
         ]
     }
+}
+
+enum LocationMode {
+    case nyp, user
+}
+
+class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 1.38, longitude: 103.8489), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
+    
+    @Published var locationMode: LocationMode = .nyp
+    @Published var lastLocation = LocationModel.nypRegion
+    
+    let locationManager = CLLocationManager()
+
+    override init() {
+        super.init()
+        self.locationManager.delegate = self
+    }
+
+    public func requestAuthorisation(always: Bool = false) {
+        if always {
+            self.locationManager.requestAlwaysAuthorization()
+        } else {
+            self.locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let latestLocation = locations.first else {
+            print("Latest location couldn't be obtained.")
+            return
+        }
+        
+        if locationMode == .user {
+            self.region = MKCoordinateRegion(center: latestLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        }
+        self.lastLocation = MKCoordinateRegion(center: latestLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error occurred: \(error.localizedDescription)")
+    }
+    
+    func switchToOpposite() {
+        if locationMode == .nyp {
+            self.locationMode = .user
+            self.region = self.lastLocation
+        } else {
+            self.locationMode = .nyp
+            self.region = LocationModel.nypRegion
+        }
+    }
+    
+    static let nypRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 1.38, longitude: 103.8489), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
 }
