@@ -42,6 +42,7 @@ struct ContentView: View {
                         }
                         .labelsHidden()
                     }
+                    .frame(height: 80)
                 }
                 
                 if selectedModuleIndex != 0 {
