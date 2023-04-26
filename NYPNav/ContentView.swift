@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var appState: AppState = AppState()
+    @EnvironmentObject var appState: AppState
     
     @State var selectedModuleIndex: Int = 0
     
@@ -65,7 +65,7 @@ struct ContentView: View {
             }
             .navigationTitle("NYPNav")
             .sheet(isPresented: $showingManageModuleSheet) {
-                ManageModuleView(appState: appState, selectedModuleIndex: $selectedModuleIndex, mode: $manageModuleMode)
+                ManageModuleView(selectedModuleIndex: $selectedModuleIndex, mode: $manageModuleMode)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

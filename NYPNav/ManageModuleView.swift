@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct ManageModuleView: View {
-    @ObservedObject var appState: AppState
+    @EnvironmentObject var appState: AppState
     @Binding var selectedModuleIndex: Int
     @Environment(\.dismiss) var dismiss
     @Binding var mode: ManageModuleMode
@@ -26,6 +26,18 @@ struct ManageModuleView: View {
     @State var showingAlert = false
     @State var alertTitle: String = ""
     @State var alertMessage: String = ""
+    
+    var titleText: String {
+        if mode == .new {
+            return "New Module"
+        } else {
+            if selectedModuleIndex == appState.modules.count {
+                return "Edit \(appState.modules[selectedModuleIndex - 1].moduleCode)"
+            } else {
+                return "Edit \(appState.modules[selectedModuleIndex].moduleCode)"
+            }
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -98,7 +110,7 @@ struct ManageModuleView: View {
                     }
                 }
             }
-            .navigationTitle(mode == .new ? "New Module": "Edit \(appState.modules[selectedModuleIndex].moduleCode)")
+            .navigationTitle(titleText)
             .onAppear {
                 // fill in form if in edit mode
                 if mode == .edit {
@@ -199,6 +211,6 @@ struct ManageModuleView: View {
 
 struct NewModule_Previews: PreviewProvider {
     static var previews: some View {
-        ManageModuleView(appState: AppState(), selectedModuleIndex: .constant(0), mode: .constant(.new))
+        ManageModuleView(selectedModuleIndex: .constant(0), mode: .constant(.new))
     }
 }

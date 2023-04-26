@@ -1,0 +1,25 @@
+//
+//  RootView.swift
+//  NYPNav
+//
+//  Created by Prakhar Trivedi on 26/4/23.
+//
+
+import SwiftUI
+
+struct RootView: View {    
+    var body: some View {
+        TabView {
+            ContentView()
+                .tabItem {
+                    Label("Modules", systemImage: "list.dash")
+                }
+        }
+    }
+}
+
+struct RootView_Previews: PreviewProvider {
+    static var previews: some View {
+        RootView()
+    }
+}
