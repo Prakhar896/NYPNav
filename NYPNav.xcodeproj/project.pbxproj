@@ -20,6 +20,8 @@
 		E2AD86E929F8D92C0091B6CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86E829F8D92C0091B6CE /* Extensions.swift */; };
 		E2AD86EB29F90BB70091B6CE /* HelperViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86EA29F90BB70091B6CE /* HelperViews.swift */; };
 		E2AD86EF29F93AC70091B6CE /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86EE29F93AC70091B6CE /* RootView.swift */; };
+		E2AD86F129F940960091B6CE /* PortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86F029F940960091B6CE /* PortalView.swift */; };
+		E2AD86F329F940B10091B6CE /* SFSafariViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86F229F940B10091B6CE /* SFSafariViewWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		E2AD86E829F8D92C0091B6CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E2AD86EA29F90BB70091B6CE /* HelperViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperViews.swift; sourceTree = "<group>"; };
 		E2AD86EE29F93AC70091B6CE /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		E2AD86F029F940960091B6CE /* PortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalView.swift; sourceTree = "<group>"; };
+		E2AD86F229F940B10091B6CE /* SFSafariViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariViewWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 				E2AD86EE29F93AC70091B6CE /* RootView.swift */,
 				E25BCA7B29F57D730076090C /* ContentView.swift */,
 				E2AD86E629F8D4810091B6CE /* ManageModuleView.swift */,
+				E2AD86F029F940960091B6CE /* PortalView.swift */,
+				E2AD86F229F940B10091B6CE /* SFSafariViewWrapper.swift */,
 				E2AD86E829F8D92C0091B6CE /* Extensions.swift */,
 				E25BCAA329F5809A0076090C /* Models.swift */,
 				E2AD86EA29F90BB70091B6CE /* HelperViews.swift */,
@@ -275,8 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2AD86F129F940960091B6CE /* PortalView.swift in Sources */,
 				E2AD86EF29F93AC70091B6CE /* RootView.swift in Sources */,
 				E25BCA7C29F57D730076090C /* ContentView.swift in Sources */,
+				E2AD86F329F940B10091B6CE /* SFSafariViewWrapper.swift in Sources */,
 				E2AD86E929F8D92C0091B6CE /* Extensions.swift in Sources */,
 				E2AD86E729F8D4810091B6CE /* ManageModuleView.swift in Sources */,
 				E25BCAA429F5809A0076090C /* Models.swift in Sources */,

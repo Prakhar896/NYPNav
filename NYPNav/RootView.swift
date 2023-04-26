@@ -14,6 +14,11 @@ struct RootView: View {
                 .tabItem {
                     Label("Modules", systemImage: "list.dash")
                 }
+            
+            PortalView()
+                .tabItem {
+                    Label("NYP Portal", systemImage: "display")
+                }
         }
     }
 }

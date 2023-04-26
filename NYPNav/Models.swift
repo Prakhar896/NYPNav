@@ -27,6 +27,12 @@ class AppState: ObservableObject {
             AppState.saveModulesToFile(modules: modules)
         }
     }
+    @Published var eServiceLinks: [EServiceLink] {
+        didSet {
+            print("Updates made to e-service links; saving to UserDefaults")
+            AppState.saveLinksToDefaults(links: eServiceLinks)
+        }
+    }
     
     init() {
         // load modules either from plist or from default modules
@@ -35,6 +41,26 @@ class AppState: ObservableObject {
         } else {
             modules = DefaultModules.load()
         }
+        
+        eServiceLinks = AppState.loadLinks()
+    }
+    
+    static func saveLinksToDefaults(links: [EServiceLink]) {
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(links) {
+            UserDefaults.standard.set(data, forKey: "EServiceList")
+        }
+    }
+    
+    static func loadLinks() -> [EServiceLink] {
+        let decoder = JSONDecoder()
+        if let savedLinks = UserDefaults.standard.data(forKey: "EServiceList") {
+            if let links = try? decoder.decode([EServiceLink].self, from: savedLinks) {
+                return links
+            }
+        }
+        
+        return EServiceLink.loadDefaultLinks()
     }
     
     static func saveModulesToFile(modules: [Module]) {
@@ -84,4 +110,18 @@ class AddParams: ObservableObject {
 
 enum ManageModuleMode {
     case new, edit
+}
+
+struct EServiceLink: Identifiable, Codable {
+    var id = UUID().uuidString
+    var name: String
+    var url: String
+    
+    static func loadDefaultLinks() -> [EServiceLink] {
+        return [
+            EServiceLink(name: "NYP Website", url: "https://nyp.edu.sg"),
+            EServiceLink(name: "MyNYP Portal", url: "mynypportal.nyp.edu.sg/en/dashboard.html"),
+            EServiceLink(name: "NYP LMS", url: "nyplms.polite.edu.sg")
+        ]
+    }
 }
