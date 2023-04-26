@@ -44,7 +44,7 @@ struct ContentView: View {
                             Text("Module Info")
                             Spacer()
                             Button {
-                                
+                                showingEditModuleSheet = true
                             } label: {
                                 Image(systemName: "square.and.pencil")
                             }
