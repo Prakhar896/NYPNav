@@ -15,6 +15,7 @@ struct ContentView: View {
     // Sheets and alerts
     @State var manageModuleMode: ManageModuleMode = .new
     @State var showingManageModuleSheet = false
+    @State var showingResetAlert = false
     
     var body: some View {
         NavigationView {
@@ -67,7 +68,25 @@ struct ContentView: View {
             .sheet(isPresented: $showingManageModuleSheet) {
                 ManageModuleView(selectedModuleIndex: $selectedModuleIndex, mode: $manageModuleMode)
             }
+            .alert("Reset Everything?", isPresented: $showingResetAlert) {
+                Button("Cancel", role: .cancel) {}
+                Button("Reset", role: .destructive) {
+                    appState.modules = DefaultModules.load()
+                    appState.eServiceLinks = EServiceLink.loadDefaultLinks()
+                    exit(0)
+                }
+            } message: {
+                Text("All changes made will be lost and only default data will be left. This action is irreversible. The app will quit to apply changes.")
+            }
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showingResetAlert = true
+                    } label: {
+                        Text("Reset")
+                    }
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         manageModuleMode = .new
