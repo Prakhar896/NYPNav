@@ -28,6 +28,9 @@ struct ContentView: View {
     
     @State var selectedModuleIndex: Int = 0
     
+    // Sheets and alerts
+    @State var showingNewModuleSheet = false
+    
     var body: some View {
         NavigationView {
             Form {
@@ -67,6 +70,18 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("NYPNav")
+            .sheet(isPresented: $showingNewModuleSheet) {
+                NewModule(appState: appState)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingNewModuleSheet = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
         }
     }
 }
