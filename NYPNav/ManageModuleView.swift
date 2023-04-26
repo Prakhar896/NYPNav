@@ -8,10 +8,11 @@
 import SwiftUI
 import UIKit
 
-struct NewModule: View {
+struct ManageModuleView: View {
     @ObservedObject var appState: AppState
     @Binding var selectedModuleIndex: Int
     @Environment(\.dismiss) var dismiss
+    @Binding var mode: ManageModuleMode
     
     @State var moduleCode: String = ""
     @State var moduleName: String = ""
@@ -29,6 +30,7 @@ struct NewModule: View {
     var body: some View {
         NavigationView {
             Form {
+                // Basic module info section
                 Section {
                     ParameterInputView(parameterName: "Module Code:", value: $moduleCode, prompt: "e.g IT1234")
                     ParameterInputView(parameterName: "Module Name:", value: $moduleName, prompt: "e.g Mathematics")
@@ -39,6 +41,7 @@ struct NewModule: View {
                     Text("Basic Module Info")
                 }
                 
+                // Additional parameters section
                 Section {
                     ForEach(0..<addParams.params.count, id: \.self) { index in
                         HStack {
@@ -67,9 +70,10 @@ struct NewModule: View {
                     }
                 }
                 
+                // Save button section
                 Section {
-                    Button(action: validateAndAddModule) {
-                        Text("Save Module")
+                    Button(action: validateAndUpdateModule) {
+                        Text(mode == .new ? "Save Module": "Save Changes")
                             .bold()
                             .foregroundColor(.accentColor)
                             .padding()
@@ -78,8 +82,36 @@ struct NewModule: View {
                     .background(Color.accentColor.opacity(0.2))
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
+                
+                // Delete module button section
+                if mode == .edit {
+                    Section {
+                        Button(action: deleteModule) {
+                            Text("Delete Module")
+                                .bold()
+                                .foregroundColor(.red)
+                                .padding()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        }
+                        .background(Color.red.opacity(0.2))
+                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    }
+                }
             }
-            .navigationTitle("New Module")
+            .navigationTitle(mode == .new ? "New Module": "Edit \(appState.modules[selectedModuleIndex].moduleCode)")
+            .onAppear {
+                // fill in form if in edit mode
+                if mode == .edit {
+                    moduleCode = appState.modules[selectedModuleIndex].moduleCode
+                    moduleName = appState.modules[selectedModuleIndex].name
+                    tutorName = appState.modules[selectedModuleIndex].tutorName
+                    tutorNumber = appState.modules[selectedModuleIndex].tutorNumber
+                    
+                    appState.modules[selectedModuleIndex].addData.forEach { key, value in
+                        addParams.params.append(AdditionalParameter(paramName: key, paramValue: value))
+                    }
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .keyboard) {
                     HStack {
@@ -108,7 +140,13 @@ struct NewModule: View {
         showingAlert = true
     }
     
-    func validateAndAddModule() {
+    func deleteModule() {
+        appState.modules.remove(at: selectedModuleIndex)
+        selectedModuleIndex = 0
+        dismiss()
+    }
+    
+    func validateAndUpdateModule() {
         guard moduleCode.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {
             makeAndShowAlert(withTitle: "Module code is required.", andMessage: "Please enter a valid module code.")
             return
@@ -133,16 +171,27 @@ struct NewModule: View {
         }
         
         withAnimation {
-            appState.modules.append(
-                Module(
+            if mode == .new {
+                appState.modules.append(
+                    Module(
+                        moduleCode: moduleCode,
+                        name: moduleName,
+                        tutorName: tutorName == "" ? "NIL": tutorName,
+                        tutorNumber: tutorNumber == "" ? "NIL": tutorNumber,
+                        addData: addData
+                    )
+                )
+                selectedModuleIndex = appState.modules.count - 1
+            } else {
+                appState.modules[selectedModuleIndex] = Module(
                     moduleCode: moduleCode,
                     name: moduleName,
                     tutorName: tutorName == "" ? "NIL": tutorName,
                     tutorNumber: tutorNumber == "" ? "NIL": tutorNumber,
                     addData: addData
                 )
-            )
-            selectedModuleIndex = appState.modules.count - 1
+            }
+            
             dismiss()
         }
     }
@@ -150,6 +199,6 @@ struct NewModule: View {
 
 struct NewModule_Previews: PreviewProvider {
     static var previews: some View {
-        NewModule(appState: AppState(), selectedModuleIndex: .constant(0))
+        ManageModuleView(appState: AppState(), selectedModuleIndex: .constant(0), mode: .constant(.new))
     }
 }

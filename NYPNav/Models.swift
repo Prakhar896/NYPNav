@@ -81,3 +81,7 @@ class AddParams: ObservableObject {
         self.params = params
     }
 }
+
+enum ManageModuleMode {
+    case new, edit
+}

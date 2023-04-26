@@ -13,8 +13,8 @@ struct ContentView: View {
     @State var selectedModuleIndex: Int = 0
     
     // Sheets and alerts
-    @State var showingNewModuleSheet = false
-    @State var showingEditModuleSheet = false
+    @State var manageModuleMode: ManageModuleMode = .new
+    @State var showingManageModuleSheet = false
     
     var body: some View {
         NavigationView {
@@ -44,7 +44,8 @@ struct ContentView: View {
                             Text("Module Info")
                             Spacer()
                             Button {
-                                showingEditModuleSheet = true
+                                manageModuleMode = .edit
+                                showingManageModuleSheet = true
                             } label: {
                                 Image(systemName: "square.and.pencil")
                             }
@@ -63,16 +64,14 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("NYPNav")
-            .sheet(isPresented: $showingNewModuleSheet) {
-                NewModule(appState: appState, selectedModuleIndex: $selectedModuleIndex)
-            }
-            .sheet(isPresented: $showingEditModuleSheet) {
-                EditModule(appState: appState, selectedModuleIndex: $selectedModuleIndex)
+            .sheet(isPresented: $showingManageModuleSheet) {
+                ManageModuleView(appState: appState, selectedModuleIndex: $selectedModuleIndex, mode: $manageModuleMode)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        showingNewModuleSheet = true
+                        manageModuleMode = .new
+                        showingManageModuleSheet = true
                     } label: {
                         Image(systemName: "plus")
                     }
