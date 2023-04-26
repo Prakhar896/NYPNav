@@ -19,6 +19,7 @@
 		E2AD86E729F8D4810091B6CE /* NewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86E629F8D4810091B6CE /* NewModule.swift */; };
 		E2AD86E929F8D92C0091B6CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86E829F8D92C0091B6CE /* Extensions.swift */; };
 		E2AD86EB29F90BB70091B6CE /* HelperViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86EA29F90BB70091B6CE /* HelperViews.swift */; };
+		E2AD86ED29F90D790091B6CE /* EditModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86EC29F90D790091B6CE /* EditModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		E2AD86E629F8D4810091B6CE /* NewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewModule.swift; sourceTree = "<group>"; };
 		E2AD86E829F8D92C0091B6CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E2AD86EA29F90BB70091B6CE /* HelperViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperViews.swift; sourceTree = "<group>"; };
+		E2AD86EC29F90D790091B6CE /* EditModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				E25BCA7929F57D730076090C /* NYPNavApp.swift */,
 				E25BCA7B29F57D730076090C /* ContentView.swift */,
+				E2AD86EC29F90D790091B6CE /* EditModule.swift */,
 				E2AD86E629F8D4810091B6CE /* NewModule.swift */,
 				E2AD86E829F8D92C0091B6CE /* Extensions.swift */,
 				E25BCAA329F5809A0076090C /* Models.swift */,
@@ -279,6 +282,7 @@
 				E2AD86EB29F90BB70091B6CE /* HelperViews.swift in Sources */,
 				E25BCA7A29F57D730076090C /* NYPNavApp.swift in Sources */,
 				E25BCAA629F584FF0076090C /* Content.swift in Sources */,
+				E2AD86ED29F90D790091B6CE /* EditModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

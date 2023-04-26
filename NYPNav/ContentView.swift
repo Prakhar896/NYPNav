@@ -14,6 +14,7 @@ struct ContentView: View {
     
     // Sheets and alerts
     @State var showingNewModuleSheet = false
+    @State var showingEditModuleSheet = false
     
     var body: some View {
         NavigationView {
@@ -39,7 +40,15 @@ struct ContentView: View {
                         ParameterView(parameter: "Tutor Name:", value: appState.modules[selectedModuleIndex].tutorName)
                         ParameterView(parameter: "Tutor Number:", value: appState.modules[selectedModuleIndex].tutorNumber)
                     } header: {
-                        Text("Module Info")
+                        HStack {
+                            Text("Module Info")
+                            Spacer()
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "square.and.pencil")
+                            }
+                        }
                     }
                     
                     if appState.modules[selectedModuleIndex].addData.count != 0 {
@@ -56,6 +65,9 @@ struct ContentView: View {
             .navigationTitle("NYPNav")
             .sheet(isPresented: $showingNewModuleSheet) {
                 NewModule(appState: appState, selectedModuleIndex: $selectedModuleIndex)
+            }
+            .sheet(isPresented: $showingEditModuleSheet) {
+                EditModule(appState: appState, selectedModuleIndex: $selectedModuleIndex)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
