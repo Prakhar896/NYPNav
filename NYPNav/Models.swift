@@ -62,3 +62,22 @@ class AppState: ObservableObject {
         return decodedModules
     }
 }
+
+class AdditionalParameter: ObservableObject {
+    var id = UUID()
+    @Published var paramName: String
+    @Published var paramValue: String
+    
+    init(paramName: String, paramValue: String) {
+        self.paramName = paramName
+        self.paramValue = paramValue
+    }
+}
+
+class AddParams: ObservableObject {
+    @Published var params: [AdditionalParameter]
+    
+    init(params: [AdditionalParameter]) {
+        self.params = params
+    }
+}

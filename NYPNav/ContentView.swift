@@ -7,22 +7,6 @@
 
 import SwiftUI
 
-struct ParameterView: View {
-    var parameter: String
-    var value: String
-    
-    var body: some View {
-        HStack {
-            Text(parameter)
-            Spacer()
-            Text(value)
-                .bold()
-                .textSelection(.enabled)
-        }
-        .padding(5)
-    }
-}
-
 struct ContentView: View {
     @StateObject var appState: AppState = AppState()
     
@@ -39,7 +23,7 @@ struct ContentView: View {
                         Text("Module:")
                         Spacer()
                         Picker("Select a module", selection: $selectedModuleIndex.animation()) {
-                            ForEach(0..<appState.modules.count) { moduleIndex in
+                            ForEach(0..<appState.modules.count, id: \.self) { moduleIndex in
                                 Text(appState.modules[moduleIndex].completeModName)
                             }
                         }
@@ -71,7 +55,7 @@ struct ContentView: View {
             }
             .navigationTitle("NYPNav")
             .sheet(isPresented: $showingNewModuleSheet) {
-                NewModule(appState: appState)
+                NewModule(appState: appState, selectedModuleIndex: $selectedModuleIndex)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

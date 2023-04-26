@@ -18,6 +18,7 @@
 		E25BCAA629F584FF0076090C /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25BCAA529F584FF0076090C /* Content.swift */; };
 		E2AD86E729F8D4810091B6CE /* NewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86E629F8D4810091B6CE /* NewModule.swift */; };
 		E2AD86E929F8D92C0091B6CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86E829F8D92C0091B6CE /* Extensions.swift */; };
+		E2AD86EB29F90BB70091B6CE /* HelperViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD86EA29F90BB70091B6CE /* HelperViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		E25BCAA529F584FF0076090C /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		E2AD86E629F8D4810091B6CE /* NewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewModule.swift; sourceTree = "<group>"; };
 		E2AD86E829F8D92C0091B6CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E2AD86EA29F90BB70091B6CE /* HelperViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				E2AD86E629F8D4810091B6CE /* NewModule.swift */,
 				E2AD86E829F8D92C0091B6CE /* Extensions.swift */,
 				E25BCAA329F5809A0076090C /* Models.swift */,
+				E2AD86EA29F90BB70091B6CE /* HelperViews.swift */,
 				E25BCAA529F584FF0076090C /* Content.swift */,
 				E25BCA7D29F57D770076090C /* Assets.xcassets */,
 				E25BCA7F29F57D770076090C /* Preview Content */,
@@ -273,6 +276,7 @@
 				E2AD86E929F8D92C0091B6CE /* Extensions.swift in Sources */,
 				E2AD86E729F8D4810091B6CE /* NewModule.swift in Sources */,
 				E25BCAA429F5809A0076090C /* Models.swift in Sources */,
+				E2AD86EB29F90BB70091B6CE /* HelperViews.swift in Sources */,
 				E25BCA7A29F57D730076090C /* NYPNavApp.swift in Sources */,
 				E25BCAA629F584FF0076090C /* Content.swift in Sources */,
 			);
