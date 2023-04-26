@@ -120,8 +120,8 @@ struct EServiceLink: Identifiable, Codable {
     static func loadDefaultLinks() -> [EServiceLink] {
         return [
             EServiceLink(name: "NYP Website", url: "https://nyp.edu.sg"),
-            EServiceLink(name: "MyNYP Portal", url: "mynypportal.nyp.edu.sg/en/dashboard.html"),
-            EServiceLink(name: "NYP LMS", url: "nyplms.polite.edu.sg")
+            EServiceLink(name: "MyNYP Portal", url: "https://mynypportal.nyp.edu.sg/en/dashboard.html"),
+            EServiceLink(name: "NYP LMS", url: "http://nyplms.polite.edu.sg")
         ]
     }
 }

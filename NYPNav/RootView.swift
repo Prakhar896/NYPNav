@@ -12,12 +12,12 @@ struct RootView: View {
         TabView {
             ContentView()
                 .tabItem {
-                    Label("Modules", systemImage: "list.dash")
+                    Label("Modules", systemImage: "list.bullet")
                 }
             
             PortalView()
                 .tabItem {
-                    Label("NYP Portal", systemImage: "display")
+                    Label("E-Services", systemImage: "display")
                 }
         }
     }
