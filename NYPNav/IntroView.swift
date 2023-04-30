@@ -30,7 +30,7 @@ struct IntroView: View {
             VStack {
                 Text("Welcome to NYPNav!")
                     .font(.headline)
-                Text("This app aims to help you, an an NYP student, navigate your daily life on- and off-campus easier.\n\n")
+                Text("This app aims to help you, an an NYP student, navigate your daily life on- and off-campus easier.\n")
                 Text("From translating cryptic module codes to detailed module information into guiding you through your way around the large campus, this app is your all-in-one go-to app for all your NYP related needs.\n")
                 Text("This app was developed by me, Prakhar Trivedi, in 2023 for myself! Drop by @Prakhar896 on GitHub if you have time.\n\nHope you have a great experience!\n")
                 
@@ -48,7 +48,7 @@ struct IntroView: View {
                 }
                 
             }
-            .padding(.top, 50)
+            .padding(.top, 20)
             .padding(.horizontal)
             .multilineTextAlignment(.center)
         }
