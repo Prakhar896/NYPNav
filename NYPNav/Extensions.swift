@@ -13,3 +13,13 @@ extension UIApplication {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
+
+enum UserDefaultsKeys: String {
+    case launchedBefore = "LaunchedBefore"
+}
+
+extension UserDefaults {
+    static func getKeyString(forKey key: UserDefaultsKeys) -> String {
+        return key.rawValue
+    }
+}

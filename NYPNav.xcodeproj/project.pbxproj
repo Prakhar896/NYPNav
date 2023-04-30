@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E21740F329FEBF28008F386C /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21740F229FEBF28008F386C /* IntroView.swift */; };
 		E25BCA7A29F57D730076090C /* NYPNavApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25BCA7929F57D730076090C /* NYPNavApp.swift */; };
 		E25BCA7C29F57D730076090C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25BCA7B29F57D730076090C /* ContentView.swift */; };
 		E25BCA7E29F57D770076090C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E25BCA7D29F57D770076090C /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E21740F229FEBF28008F386C /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		E25BCA7629F57D730076090C /* NYPNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYPNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25BCA7929F57D730076090C /* NYPNavApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYPNavApp.swift; sourceTree = "<group>"; };
 		E25BCA7B29F57D730076090C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				E25BCA7929F57D730076090C /* NYPNavApp.swift */,
 				E2AD86EE29F93AC70091B6CE /* RootView.swift */,
 				E25BCA7B29F57D730076090C /* ContentView.swift */,
+				E21740F229FEBF28008F386C /* IntroView.swift */,
 				E2AD86F429F966DD0091B6CE /* CampusMapView.swift */,
 				E2AD86E629F8D4810091B6CE /* ManageModuleView.swift */,
 				E2AD86F029F940960091B6CE /* PortalView.swift */,
@@ -291,6 +294,7 @@
 				E25BCA7C29F57D730076090C /* ContentView.swift in Sources */,
 				E2AD86F529F966DD0091B6CE /* CampusMapView.swift in Sources */,
 				E2AD86F329F940B10091B6CE /* SFSafariViewWrapper.swift in Sources */,
+				E21740F329FEBF28008F386C /* IntroView.swift in Sources */,
 				E2AD86E929F8D92C0091B6CE /* Extensions.swift in Sources */,
 				E2AD86E729F8D4810091B6CE /* ManageModuleView.swift in Sources */,
 				E25BCAA429F5809A0076090C /* Models.swift in Sources */,

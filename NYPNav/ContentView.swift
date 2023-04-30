@@ -16,6 +16,7 @@ struct ContentView: View {
     @State var manageModuleMode: ManageModuleMode = .new
     @State var showingManageModuleSheet = false
     @State var showingResetAlert = false
+    @State var showingIntroSheet = false
     
     var body: some View {
         NavigationView {
@@ -68,15 +69,27 @@ struct ContentView: View {
             .sheet(isPresented: $showingManageModuleSheet) {
                 ManageModuleView(selectedModuleIndex: $selectedModuleIndex, mode: $manageModuleMode)
             }
+            .fullScreenCover(isPresented: $showingIntroSheet) {
+                IntroView()
+            }
             .alert("Reset Everything?", isPresented: $showingResetAlert) {
                 Button("Cancel", role: .cancel) {}
-                Button("Reset", role: .destructive) {
+                Button("Reset With Built-in Modules", role: .destructive) {
                     appState.modules = DefaultModules.load()
                     appState.eServiceLinks = EServiceLink.loadDefaultLinks()
+                    UserDefaults.standard.set(false, forKey: UserDefaults.getKeyString(forKey: .launchedBefore))
+                    UserDefaults.standard.synchronize()
+                    exit(0)
+                }
+                Button("Complete Reset", role: .destructive) {
+                    appState.modules = [DefaultModules.blankModule]
+                    appState.eServiceLinks = EServiceLink.loadDefaultLinks()
+                    UserDefaults.standard.set(false, forKey: UserDefaults.getKeyString(forKey: .launchedBefore))
+                    UserDefaults.standard.synchronize()
                     exit(0)
                 }
             } message: {
-                Text("All changes made will be lost and only default data will be left. This action is irreversible. The app will quit to apply changes.")
+                Text("You can choose to either reset the app and load built-in modules in the app or load none at all (complete reset).\n\nAll changes made will be lost and only default data will be left. This action is irreversible. The app will quit to apply changes.")
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -96,7 +109,17 @@ struct ContentView: View {
                     }
                 }
             }
+            .onAppear {
+                let launchedBefore = UserDefaults.standard.bool(forKey: UserDefaults.getKeyString(forKey: .launchedBefore))
+                if !launchedBefore {
+                    showingIntroSheet = true
+                }
+            }
         }
+    }
+    
+    func checkIfFirstLaunch() {
+        
     }
 }
 
