@@ -19,7 +19,7 @@ Users have the ability to add new modules and edit module information such as re
 
 > Shown in the screenshot above are a default list of e-services that come when you install the app.
 
-In the e-services tab, users are able to select from a range of common NYP related websites that would be accessed often by NYP students. Clicking on any one of these services will bring users to an **in-browser Safari experience** where the user can browse the e-service right in the app.
+In the e-services tab, users are able to select from a range of common NYP related websites that would be accessed often by NYP students. Clicking on any one of these services will bring users to an **in-app browsing experience** where the user can browse the e-service right in the app.
 
 This makes accessing these services much much easier and eliminates the need to create different Safari tabs in the Safari app everytime.
 
