@@ -3,7 +3,7 @@
 # NYPNav
 An app that aims to help NYP students navigate their daily life on- and off-campus easily.
 
-From translating cryptic module codes to details into detailed module information to guiding you through your way around the large campus, this is a go-to app for any NYP student's needs.
+From translating cryptic module codes into detailed module information to guiding you through your way around the large campus, this is a go-to app for any NYP student's needs.
 
 If I'm being crudely honest, I was quite bored and found it tedious to have to go open up the student portal to go find out which module code means what and built this simple app for myself. I'm happy if it helps others as well!
 
