@@ -109,22 +109,21 @@ struct ContentView: View {
                     }
                 }
             }
-            .onAppear {
-                let launchedBefore = UserDefaults.standard.bool(forKey: UserDefaults.getKeyString(forKey: .launchedBefore))
-                if !launchedBefore {
-                    showingIntroSheet = true
-                }
-            }
+            .onAppear(perform: checkIfFirstLaunch)
         }
     }
     
     func checkIfFirstLaunch() {
-        
+        let launchedBefore = UserDefaults.standard.bool(forKey: UserDefaults.getKeyString(forKey: .launchedBefore))
+        if !launchedBefore {
+            showingIntroSheet = true
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(AppState())
     }
 }
